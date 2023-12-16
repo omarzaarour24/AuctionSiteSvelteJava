@@ -1,0 +1,19 @@
+POST {{protocol}}{{host}}:{{post}}/auth
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Email": "user",
+  "Password": "pass"
+}
+
+> {%
+client.global.set("token", "m1jnH3l3L4ng3en5uperV31l!geT0ken");
+%}
+###
+### Invalidate the token
+###
+DELETE {{protocol}}{{host}}:{{post}}/auth
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}

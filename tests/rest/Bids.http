@@ -1,0 +1,45 @@
+### creates a new bid
+POST {{host}}:{{port}}/api/auctions/{id}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id":0,
+  "userid":0,
+  "Auctionid":0,
+  "amount":0
+
+
+}
+### get all bid
+GET {{host}}:{{port}}/api/auctions/
+Accept: application/json
+
+### get bid by ID
+GET {{host}}:{{port}}/api/auctions/{id}
+Accept: application/json
+
+### deletes bid based on id
+DELETE {{host}}:{{port}}/api/auctions/{id}
+Accept: application/json
+
+> {%
+client.test(
+    "bid deleted",
+    function() {
+        client.assert(response.status === 200, "Response status is not 200 ");
+
+    }
+);
+%}
+### update bid info
+PATCH {{host}}:{{port}}/api/auctions/{id}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id":0,
+  "userid":0,
+  "Auctionid":0,
+  "amount":0
+}

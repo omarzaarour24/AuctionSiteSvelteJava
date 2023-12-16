@@ -1,0 +1,39 @@
+### creates a new user
+POST {{host}}:{{port}}/api/users/
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Email":"",
+  "Password": ""
+}
+### get all users
+GET {{host}}:{{port}}/api/users
+Accept: application/json
+### get user by ID
+GET {{host}}:{{port}}/api/users/{id}
+Accept: application/json
+### deletes user based on id
+DELETE {{host}}:{{port}}/api/users/{id}
+Accept: application/json
+
+> {%
+client.test(
+    "user deleted",
+    function() {
+        client.assert(response.status === 200, "Response status is not 200 ");
+
+    }
+);
+%}
+### update user info
+PATCH {{host}}:{{port}}/api/users/{id}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Email":"",
+  "Password": ""
+
+
+}
